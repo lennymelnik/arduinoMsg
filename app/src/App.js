@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 async function sendMsg(msg) {
-  return fetch('https://dev.leonardmelnik.com/lovemsg/send-msg', {
+  return fetch('https://dev.leonardmelnik.com/send-msg', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
