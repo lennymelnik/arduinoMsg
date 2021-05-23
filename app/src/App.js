@@ -8,7 +8,7 @@ async function sendMsg(msg) {
       'Content-Type': 'application/json',
      
     },
-    body : JSON.stringify({msg : msg})
+    body : JSON.stringify({msg : msg, to : document.getElementById('to').value})
   })
     .then(data => data.json())
  }
@@ -22,6 +22,11 @@ function App() {
         
         <h1>This is the love messenger</h1>
         <input onChange={(e)=>{sendMsg(e.target.value)}}/>
+        <select id='to'>
+          <option>stef</option>
+          <option>lenny</option>
+
+        </select>
        
       </header>
     </div>

@@ -13,16 +13,24 @@ app.use(async (req, res, next) =>{
 })
 app.post('/send-msg', async (req, res) => {
     var data = req.body.msg
+    var to = req.body.to
 
-    fs.writeFile("msg.txt", data, (err) => {
+    fs.writeFile(to+".txt", data, (err) => {
     if (err) console.log(err);
     console.log("Successfully Written to File.");
     res.send("Done")
     });
 
 })
-app.get('/', async (req, res) => {
-    fs.readFile('msg.txt', 'utf8', function(err, data) {
+app.get('/msgstef', async (req, res) => {
+    fs.readFile('stef.txt', 'utf8', function(err, data) {
+        if (err) throw err;
+        res.send(data)
+    })
+
+})
+app.get('/msglenny', async (req, res) => {
+    fs.readFile('lenny.txt', 'utf8', function(err, data) {
         if (err) throw err;
         res.send(data)
     })
